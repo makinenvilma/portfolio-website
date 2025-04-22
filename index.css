@@ -21,7 +21,7 @@ header {
     position: absolute;
     width: 100%;
     top: 0;
-    z-index: 2;
+    z-index: 999;
 }
 
 header .navbar {
@@ -85,7 +85,7 @@ header nav ul li a {
         0 0 16px rgba(255, 255, 255, 0.3),
         0 0 24px rgba(255, 255, 255, 0.2),
         inset 0 0 12px rgba(255, 255, 255, 0.4);
-    margin-top: 50px; /* Lisää tämä rivi */
+    margin-top: 50px;
 }
 
 .banner-heading h1 {
@@ -684,4 +684,73 @@ h1 {
     font-size: 14px;
     text-transform: uppercase;
     letter-spacing: 1px;
+}
+
+.new-section3 .contact-container {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 20px;
+    align-items: flex-start;
+    justify-content: space-between;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    flex-direction: row;
+}
+
+.contact-description {
+    flex: 1;
+    max-width: 45%;
+    color: #ddd;
+    text-align: left;
+}
+
+.contact-description h2 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.contact-description p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+}
+
+.contact-form {
+    flex: 1;
+    max-width: 45%;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.contact-form label {
+    font-size: 1rem;
+    color: #fff;
+    text-align: left;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background: #222;
+    color: #fff;
+}
+
+.contact-form button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    color: #fff;
+    background: #444;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.contact-form button:hover {
+    background: #555;
 }
