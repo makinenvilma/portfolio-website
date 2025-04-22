@@ -98,7 +98,6 @@ header nav ul li a {
     font-size: 2rem;
 }
 
-
 #grained {
     position: absolute;
     width: 100%;
@@ -667,4 +666,22 @@ h1 {
     100% {
         transform: translate(-10%, 10%);
     }
+}
+
+.technologies{
+    margin-top: 20px;
+    text-align: center;
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+.technologies span {
+    background: rgba(255, 255, 255, 0.11);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
