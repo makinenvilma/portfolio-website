@@ -136,7 +136,6 @@ var options = {
     grainHeight: 1
 };
 
-// Lisää grained-tausta jokaiselle sectionille
 grained('#grained-hero', options);
 grained('#grained-section1', options);
 grained('#grained-section2', options);
