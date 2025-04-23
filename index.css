@@ -322,6 +322,7 @@ h1 {
     text-align: center;
     color: white;
     filter: grayscale(0%);
+    border-top: 1px solid rgba(255, 255, 255, 0.5); /* Added border to separate sections */
 }
 
 .section-title {
@@ -396,7 +397,7 @@ h1 {
     text-align: center;
     color: white;
     filter: grayscale(0%);
-
+    border-top: 1px solid rgba(255, 255, 255, 0.5); /* Added border to separate sections */
 }
 
 .new-section3 {
@@ -409,7 +410,7 @@ h1 {
     text-align: center;
     color: white;
     filter: grayscale(0%);
-
+    border-top: 1px solid rgba(255, 255, 255, 0.5); /* Added border to separate sections */
 }
 
 .new-section .container,
@@ -427,6 +428,10 @@ h1 {
     padding: 0 20px;
 }
 
+.new-section2 .container {
+    margin-top: 50px;
+}
+
 #grained {
     position: absolute;
     width: 100%;
@@ -436,11 +441,10 @@ h1 {
 
 /* Footer */
 footer {
-    background: #333;
-    color: #fff;
+    background: rgba(255, 255, 255, 0.11);
+    border-top: 1px solid rgba(255, 255, 255, 0.5);
     text-align: center;
     padding: 10px 0;
-    opacity: 0.8;
 }
 
 footer p {
