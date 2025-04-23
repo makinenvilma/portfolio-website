@@ -687,7 +687,7 @@ h1 {
     gap: 20px;
     align-items: flex-start;
     justify-content: space-between;
-    max-width: 800px;
+    max-width: 1000px;
     margin: 0 auto;
     padding: 20px;
     flex-direction: row;
