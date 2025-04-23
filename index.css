@@ -29,14 +29,14 @@ header .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 40px; /* Added padding to move content away from edges */
+    padding: 0 40px;
 }
 
 header .logo {
     height: 50px;
-    margin-right: 20px; /* Adjusted for spacing */
+    margin-right: 20px;
     margin-top: 15px;
-    order: 2; /* Move logo to the right */
+    order: 2;
 }
 
 header nav ul {
@@ -44,7 +44,7 @@ header nav ul {
     margin: 0;
     padding: 0;
     display: flex;
-    order: 1; /* Move links to the left */
+    order: 1;
 }
 
 header nav ul li {
@@ -322,7 +322,7 @@ h1 {
     text-align: center;
     color: white;
     filter: grayscale(0%);
-    border-top: 1px solid rgba(255, 255, 255, 0.5); /* Added border to separate sections */
+    border-top: 1px solid rgba(255, 255, 255, 0.5);
 }
 
 .section-title {
@@ -397,7 +397,7 @@ h1 {
     text-align: center;
     color: white;
     filter: grayscale(0%);
-    border-top: 1px solid rgba(255, 255, 255, 0.5); /* Added border to separate sections */
+    border-top: 1px solid rgba(255, 255, 255, 0.5);
 }
 
 .new-section3 {
@@ -410,7 +410,7 @@ h1 {
     text-align: center;
     color: white;
     filter: grayscale(0%);
-    border-top: 1px solid rgba(255, 255, 255, 0.5); /* Added border to separate sections */
+    border-top: 1px solid rgba(255, 255, 255, 0.5);
 }
 
 .new-section .container,
