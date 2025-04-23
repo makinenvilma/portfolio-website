@@ -779,3 +779,25 @@ textarea {
 .banner-button:hover {
     color: rgba(255, 255, 255, 0.829);
 }
+
+.banner-button,
+.technologies a {
+    text-decoration: none;
+    color: #fff;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    padding: 10px 19px;
+    border-radius: 20px;
+    font-size: 20px;
+    font-family: 'Montserrat', sans-serif;
+    letter-spacing: 1px;
+    transition: background 0.3s, color 0.3s;
+    z-index: 999;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+.banner-button:hover,
+.technologies a:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.829);
+}
