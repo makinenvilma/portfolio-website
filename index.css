@@ -8,8 +8,9 @@ body {
     font-family: 'Montserrat', sans-serif;
     color: hsl(20, 10%, 90%);
     background: hsl(0, 0%, 10%);
-    line-height: 1.6;
+    line-height: 1.76;
     padding: 0;
+    font-size: 1.1em;
 }
 
 /* Navbar */
@@ -54,6 +55,7 @@ header nav ul li {
 header nav ul li a {
     color: #fff;
     text-decoration: none;
+    font-size: 1.3rem;
 }
 
 /* Hero */
@@ -69,7 +71,7 @@ header nav ul li a {
 
 .banner-heading {
     position: relative;
-    padding: 40px;
+    padding: 44px;
     border: 2px solid #ffffff;
     display: inline-block;
     z-index: 2;
@@ -80,17 +82,17 @@ header nav ul li a {
         0 0 16px rgba(255, 255, 255, 0.3),
         0 0 24px rgba(255, 255, 255, 0.2),
         inset 0 0 12px rgba(255, 255, 255, 0.4);
-    margin-top: 160px;
+    margin-top: 176px;
 }
 
 .banner-heading h1 {
     margin: 0;
-    font-size: 5rem;
+    font-size: 5.5rem;
 }
 
 .banner-heading .banner-text {
     margin-top: 10px;
-    font-size: 2rem;
+    font-size: 2.2rem;
 }
 
 #grained {
@@ -294,18 +296,18 @@ h1 {
 }
 
 .banner-intro {
-    font-size: 1.5rem;
+    font-size: 1.7rem;
     color: hsl(20, 10%, 90%);
     text-align: center;
     margin-bottom: 10px;
 }
 
 .intro-text {
-    margin-top: 30px;
-    font-size: 19px;
+    margin-top: 33px;
+    font-size: 20.9px;
     color: hsl(20, 10%, 90%);
     text-align: center;
-    max-width: 600px;
+    max-width: 660px;
     line-height: 1.5;
     margin-left: auto;
     margin-right: auto;
@@ -327,7 +329,7 @@ h1 {
 
 .section-title {
     text-align: center;
-    font-size: 1.3rem;
+    font-size: 1.43rem;
     font-weight: 700;
     margin-bottom: 0px;
     color: #fff;
@@ -336,26 +338,26 @@ h1 {
 /* Centered title */
 .section-main-title {
     text-align: center;
-    font-size: 2rem;
+    font-size: 2.2rem;
     font-weight: 700;
-    margin-bottom: 20px;
+    margin-bottom: 22px;
     color: #fff;
 }
 
-/* Kuvagalleria */
+/* Image gallery */
 .image-gallery {
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     gap: 20px;
-    justify-content: flex-start;
-    margin-top: 20px;
-    max-width: 800px;
-    margin-left: 0;
-    margin-right: 0;
+    justify-content: space-between;
+    margin-top: 22px;
+    max-width: 100%;
+    overflow-x: auto;
 }
 
 .image-item {
-    width: calc(50% - 20px);
+    flex: 1;
+    max-width: 48%;
     text-align: left;
     display: flex;
     flex-direction: column;
@@ -370,19 +372,19 @@ h1 {
 }
 
 .image-description {
-    margin-top: 10px;
-    font-size: 1rem;
+    margin-top: 11px;
+    font-size: 1.1rem;
     color: #ddd;
     text-align: left;
 }
 
 .section-description {
     text-align: left;
-    font-size: 1.2rem;
+    font-size: 1.32rem;
     color: #ddd;
-    margin-top: 20px;
+    margin-top: 22px;
     line-height: 1.6;
-    max-width: 800px;
+    max-width: 880px;
     margin-left: 0;
     margin-right: 0;
 }
@@ -678,9 +680,9 @@ h1 {
 .technologies span {
     background: rgba(255, 255, 255, 0.11);
     border: 1px solid rgba(255, 255, 255, 0.5);
-    padding: 8px 15px;
+    padding: 8.8px 16.5px;
     border-radius: 20px;
-    font-size: 14px;
+    font-size: 15.4px;
     text-transform: uppercase;
     letter-spacing: 1px;
 }
@@ -705,13 +707,13 @@ h1 {
 }
 
 .contact-description h2 {
-    font-size: 2rem;
-    margin-bottom: 10px;
+    font-size: 2.2rem;
+    margin-bottom: 11px;
 }
 
 .contact-description p {
-    font-size: 1.2rem;
-    line-height: 1.6;
+    font-size: 1.32rem;
+    line-height: 1.76;
 }
 
 .contact-form {
@@ -723,7 +725,7 @@ h1 {
 }
 
 .contact-form label {
-    font-size: 1rem;
+    font-size: 1.1rem;
     color: #fff;
     text-align: left;
 }
@@ -731,8 +733,8 @@ h1 {
 .contact-form input,
 .contact-form textarea {
     width: 100%;
-    padding: 10px;
-    font-size: 1rem;
+    padding: 11px;
+    font-size: 1.1rem;
     border: 1px solid #ccc;
     border-radius: 5px;
     background: #222;
@@ -757,8 +759,8 @@ textarea {
     letter-spacing: 1px;
     transition: background 0.3s, color 0.3s;
     cursor: pointer;
-    padding: 12px 19px;
-    font-size: 20px;
+    padding: 13.2px 20.9px;
+    font-size: 22px;
 }
 
 .contact-form button:hover {
@@ -770,9 +772,9 @@ textarea {
     text-decoration: none;
     color: #fff;
     border: 2px solid rgba(255, 255, 255, 0.5);
-    padding: 10px 19px;
+    padding: 11px 20.9px;
     border-radius: 20px;
-    font-size: 20px;
+    font-size: 22px;
     font-family: 'Montserrat', sans-serif;
     letter-spacing: 1px;
     transition: background 0.3s, color 0.3s;
@@ -789,9 +791,9 @@ textarea {
     text-decoration: none;
     color: #fff;
     border: 2px solid rgba(255, 255, 255, 0.5);
-    padding: 10px 19px;
+    padding: 11px 20.9px;
     border-radius: 20px;
-    font-size: 20px;
+    font-size: 22px;
     font-family: 'Montserrat', sans-serif;
     letter-spacing: 1px;
     transition: background 0.3s, color 0.3s;
