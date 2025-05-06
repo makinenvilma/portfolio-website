@@ -335,6 +335,10 @@ h1 {
     color: #fff;
 }
 
+.section-title + p {
+    margin-bottom: 0px;
+}
+
 /* Centered title */
 .section-main-title {
     text-align: center;
