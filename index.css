@@ -386,11 +386,15 @@ h1 {
     text-align: left;
     font-size: 1.32rem;
     color: #ddd;
-    margin-top: 22px;
+    margin-top: 0;
     line-height: 1.6;
     max-width: 880px;
     margin-left: 0;
     margin-right: 0;
+}
+
+.section-description p {
+    margin-top: 0;
 }
 
 .new-section2 {
@@ -445,10 +449,6 @@ h1 {
     margin: 0 auto;
     max-width: 800px;
     padding: 0 20px;
-}
-
-.new-section2 .container {
-    margin-top: 50px;
 }
 
 #grained {
