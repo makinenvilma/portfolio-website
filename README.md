@@ -19,3 +19,4 @@ The hero section features an interactive animated orb background that reacts to 
    git clone https://github.com/username/portfolio.git
    cd portfolio
    npm install
+   npm run dev
