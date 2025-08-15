@@ -1,8 +1,7 @@
-/* src/index.css */
 @import "tailwindcss";
 @config "../tailwind.config.js";
 
-/* Halutessasi omia utiliteetteja/teemamuuttujia tänne: */
+
 @layer base {
   :root {
     --background: 0 0% 100%;
@@ -19,7 +18,7 @@
   }
 }
 
-/* Esimerkkibutton – poista jos et tarvitse */
+/* Example button */
 @layer utilities {
   .btn {
     @apply inline-flex items-center justify-center rounded-xl px-4 py-2 font-medium;

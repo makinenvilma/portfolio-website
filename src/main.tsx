@@ -1,10 +1,10 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import "./index.css";               // <- LATAA TAILWINDIN
-import PortfolioSite from "./PortfolioSite"; // tai: import App from "./App";
+import "./index.css";
+import PortfolioSite from "./PortfolioSite";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
-    <PortfolioSite />               {/* tai <App /> */}
+    <PortfolioSite />
   </React.StrictMode>
 );
