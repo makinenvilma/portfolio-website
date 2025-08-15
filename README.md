@@ -15,6 +15,7 @@ The hero section features an interactive animated orb background that reacts to 
 
 1. **Clone the repository**
 
-   ```git clone https://github.com/username/portfolio.git```
-   ```cd portfolio```
-   ```npm install```
+   ```bash
+   git clone https://github.com/username/portfolio.git
+   cd portfolio
+   npm install
