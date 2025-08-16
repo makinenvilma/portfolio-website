@@ -1,5 +1,5 @@
 import { useEffect, useRef } from "react";
-import { Renderer, Program, Mesh, Triangle, Vec3 } from "ogl";
+import { Renderer, Program, Mesh, Triangle, Vec3, type OGLRenderingContext } from "ogl";
 import "./Orb.css";
 
 type OrbProps = {
@@ -15,7 +15,6 @@ export default function Orb({
   rotateOnHover = true,
   forceHoverState = false,
 }: OrbProps) {
-  // TYYPITÄ REF EKSPLISIITTISESTI
   const ctnDom = useRef<HTMLDivElement | null>(null);
 
   const vert = /* glsl */ `
@@ -177,19 +176,12 @@ export default function Orb({
   `;
 
   useEffect(() => {
-    // PAKOTETAAN TYYPPI SELVÄKSI JA GUARD
-    const container = ctnDom.current as HTMLDivElement | null;
+    const container = ctnDom.current;
     if (!container) return;
 
     const renderer = new Renderer({ alpha: true, premultipliedAlpha: false });
-    // OGL:n gl voi olla WebGLRenderingContext tai WebGL2RenderingContext
-    const gl = renderer.gl as WebGLRenderingContext & {
-      canvas: HTMLCanvasElement;
-      getExtension(name: string): any;
-    };
-
+    const gl = renderer.gl as OGLRenderingContext; // ← tärkeä muutos
     gl.clearColor(0, 0, 0, 0);
-    // container on HTMLDivElement tässä haarassa → EI never
     container.appendChild(gl.canvas);
 
     const geometry = new Triangle(gl);
@@ -227,7 +219,6 @@ export default function Orb({
         gl.canvas.width / gl.canvas.height
       );
     };
-
     window.addEventListener("resize", resize);
     resize();
 
@@ -292,7 +283,8 @@ export default function Orb({
       if (gl.canvas && gl.canvas.parentNode === container) {
         container.removeChild(gl.canvas);
       }
-      gl.getExtension("WEBGL_lose_context")?.loseContext?.();
+      // @ts-expect-error: extension typings not guaranteed
+      gl.getExtension?.("WEBGL_lose_context")?.loseContext?.();
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [hue, hoverIntensity, rotateOnHover, forceHoverState]);
