@@ -21,7 +21,7 @@ const INFO = {
 const PROJECTS = [
   {
     title: "Chat Web App",
-    description: "Real-time messaging platform with customizable nicknames and the ability to create or join chat rooms.",
+    description: "Real-time messaging platform with customizable nicknames and the ability to create chat rooms.",
     tags: ["HTML", "CSS", "Node.js", "Express", "Socket.io", "JavaScript", "MongoDB"],
     href: "https://example.com",
     github: "https://github.com/username/project",
