@@ -247,7 +247,8 @@ function About() {
     <section id="about" className="relative z-10 mx-auto max-w-4xl px-6 py-16 text-center">
       <h2 className="text-2xl font-semibold text-white sm:text-3xl">About Me</h2>
       <p className="mt-4 text-zinc-300">
-        
+        I’m a software developer who enjoys working on the whole stack - from the code running behind the scenes to the interfaces people interact with. I believe software should always put people first, which is why I care about creating solutions that are simple, intuitive, and enjoyable to use.
+        I have a soft spot for clean design and well-structured code. Whether it’s the look of the interface or the structure behind it, I like things to be neat, clear, and visually pleasing. Building software that feels both functional and beautiful is what motivates me most.
       </p>
     </section>
   );
@@ -276,7 +277,9 @@ function Contact() {
     <section id="contact" className="relative z-10 mx-auto max-w-4xl px-6 py-16">
       <div className="rounded-2xl border border-zinc-800 bg-zinc-900/70 p-6 backdrop-blur">
         <h2 className="text-2xl font-semibold text-white sm:text-3xl">Contact Me</h2>
-        <p className="mt-3 text-zinc-300"></p>
+        <p className="mt-3 text-zinc-300">
+          If you’d like to work together or learn more about my projects, don’t hesitate to get in touch. I’m always open to new opportunities, interesting conversations, and creative collaborations.
+        </p>
         <div className="mt-5 flex flex-wrap items-center gap-3">
           <a href={`mailto:${INFO.email}`} className="inline-flex items-center gap-2 rounded-xl bg-white/90 px-4 py-2 text-sm font-medium text-zinc-900 hover:bg-white">
             <Mail className="h-4 w-4" /> {INFO.email}
