@@ -92,7 +92,7 @@ function Hero() {
   return (
     <section className="relative isolate flex min-h-[86vh] items-center justify-center overflow-hidden px-6 pt-28">
       {/* Orb */}
-      <div className="absolute inset-0 -z-10 ">
+      <div className="absolute inset-0 -z-10 translate-y-10">
         <Orb
           hoverIntensity={0.5}
           rotateOnHover={true}
