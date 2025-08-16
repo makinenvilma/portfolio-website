@@ -15,6 +15,7 @@ export default function Orb({
   rotateOnHover = true,
   forceHoverState = false,
 }: OrbProps) {
+  // TYYPITÄ REF EKSPLISIITTISESTI
   const ctnDom = useRef<HTMLDivElement | null>(null);
 
   const vert = /* glsl */ `
@@ -176,12 +177,19 @@ export default function Orb({
   `;
 
   useEffect(() => {
-    const container = ctnDom.current;
+    // PAKOTETAAN TYYPPI SELVÄKSI JA GUARD
+    const container = ctnDom.current as HTMLDivElement | null;
     if (!container) return;
 
     const renderer = new Renderer({ alpha: true, premultipliedAlpha: false });
-    const gl = renderer.gl as WebGLRenderingContext;
+    // OGL:n gl voi olla WebGLRenderingContext tai WebGL2RenderingContext
+    const gl = renderer.gl as WebGLRenderingContext & {
+      canvas: HTMLCanvasElement;
+      getExtension(name: string): any;
+    };
+
     gl.clearColor(0, 0, 0, 0);
+    // container on HTMLDivElement tässä haarassa → EI never
     container.appendChild(gl.canvas);
 
     const geometry = new Triangle(gl);
@@ -206,7 +214,7 @@ export default function Orb({
 
     const mesh = new Mesh(gl, { geometry, program });
 
-    const resize = () => {
+    const resize = (): void => {
       const dpr = window.devicePixelRatio || 1;
       const width = container.clientWidth;
       const height = container.clientHeight;
@@ -219,7 +227,8 @@ export default function Orb({
         gl.canvas.width / gl.canvas.height
       );
     };
-    window.addEventListener("resize", resize as EventListener);
+
+    window.addEventListener("resize", resize);
     resize();
 
     let targetHover = 0;
@@ -227,7 +236,7 @@ export default function Orb({
     let currentRot = 0;
     const rotationSpeed = 0.3;
 
-    const handleMouseMove = (e: MouseEvent) => {
+    const handleMouseMove = (e: MouseEvent): void => {
       const rect = container.getBoundingClientRect();
       const x = e.clientX - rect.left;
       const y = e.clientY - rect.top;
@@ -246,15 +255,15 @@ export default function Orb({
       }
     };
 
-    const handleMouseLeave = () => {
+    const handleMouseLeave = (): void => {
       targetHover = 0;
     };
 
-    container.addEventListener("mousemove", handleMouseMove as EventListener);
-    container.addEventListener("mouseleave", handleMouseLeave as EventListener);
+    container.addEventListener("mousemove", handleMouseMove);
+    container.addEventListener("mouseleave", handleMouseLeave);
 
     let rafId: number = 0;
-    const update = (t: number) => {
+    const update = (t: number): void => {
       rafId = requestAnimationFrame(update);
       const dt = (t - lastTime) * 0.001;
       lastTime = t;
@@ -277,13 +286,13 @@ export default function Orb({
 
     return () => {
       cancelAnimationFrame(rafId);
-      window.removeEventListener("resize", resize as EventListener);
-      container.removeEventListener("mousemove", handleMouseMove as EventListener);
-      container.removeEventListener("mouseleave", handleMouseLeave as EventListener);
-      if (gl && gl.canvas && gl.canvas.parentNode === container) {
+      window.removeEventListener("resize", resize);
+      container.removeEventListener("mousemove", handleMouseMove);
+      container.removeEventListener("mouseleave", handleMouseLeave);
+      if (gl.canvas && gl.canvas.parentNode === container) {
         container.removeChild(gl.canvas);
       }
-      (gl.getExtension("WEBGL_lose_context") as any)?.loseContext?.();
+      gl.getExtension("WEBGL_lose_context")?.loseContext?.();
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [hue, hoverIntensity, rotateOnHover, forceHoverState]);
