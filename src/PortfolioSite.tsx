@@ -1,7 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import Orb from "./Orb";
-import { Mail, Github, Linkedin, Download, ExternalLink, Code2, Moon, Sun } from "lucide-react";
+import { Mail, Github, Linkedin, Download, ExternalLink, Code2, Moon, PartyPopper } from "lucide-react";
 
 const INFO = {
   name: "Vilma Mäkinen",
@@ -96,7 +96,7 @@ function Hero() {
   );
 }
 
-function Header({ onToggleTheme, theme }: { onToggleTheme: () => void; theme: "light" | "dark" }) {
+function Header({ onToggleTheme, theme }: { onToggleTheme: () => void; theme: "party" | "dark" }) {
   return (
     <header className="fixed inset-x-0 top-0 z-40">
       <div className="mx-auto max-w-6xl px-4">
@@ -121,7 +121,7 @@ function Header({ onToggleTheme, theme }: { onToggleTheme: () => void; theme: "l
               <Download className="h-4 w-4" /> Download CV
             </a>
             <button onClick={onToggleTheme} aria-label="Vaihda teema" className="inline-flex items-center justify-center rounded-xl border border-zinc-700 bg-zinc-800 p-2 text-zinc-200 hover:border-zinc-600">
-              {theme === "dark" ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
+              {theme === "dark" ? <PartyPopper className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
             </button>
           </div>
         </div>
@@ -247,7 +247,7 @@ function Footer() {
 }
 
 export default function PortfolioSite() {
-  const [theme, setTheme] = React.useState<"light" | "dark">("dark");
+  const [theme, setTheme] = React.useState<"party" | "dark">("dark");
 
   React.useEffect(() => {
     const root = document.documentElement;
@@ -255,14 +255,13 @@ export default function PortfolioSite() {
       root.classList.add("dark");
       root.style.setProperty("color-scheme", "dark");
     } else {
-      root.classList.remove("dark");
-      root.style.setProperty("color-scheme", "light");
+      root.style.setProperty("color-scheme", "party");
     }
   }, [theme]);
 
   return (
     <div className="min-h-screen bg-white text-zinc-900 dark:bg-zinc-950 dark:text-zinc-50">
-      <Header onToggleTheme={() => setTheme(theme === "dark" ? "light" : "dark")} theme={theme} />
+      <Header onToggleTheme={() => setTheme(theme === "dark" ? "party" : "dark")} theme={theme} />
       <Hero />
       <Projects />
       <About />
