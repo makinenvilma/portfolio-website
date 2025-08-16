@@ -2,13 +2,20 @@ import { useEffect, useRef } from "react";
 import { Renderer, Program, Mesh, Triangle, Vec3 } from "ogl";
 import "./Orb.css";
 
+type OrbProps = {
+  hue?: number;
+  hoverIntensity?: number;
+  rotateOnHover?: boolean;
+  forceHoverState?: boolean;
+};
+
 export default function Orb({
   hue = 0,
   hoverIntensity = 0.2,
   rotateOnHover = true,
   forceHoverState = false,
-}) {
-  const ctnDom = useRef(null);
+}: OrbProps) {
+  const ctnDom = useRef<HTMLDivElement | null>(null);
 
   const vert = /* glsl */ `
     precision highp float;
@@ -173,7 +180,7 @@ export default function Orb({
     if (!container) return;
 
     const renderer = new Renderer({ alpha: true, premultipliedAlpha: false });
-    const gl = renderer.gl;
+    const gl = renderer.gl as WebGLRenderingContext;
     gl.clearColor(0, 0, 0, 0);
     container.appendChild(gl.canvas);
 
@@ -199,8 +206,7 @@ export default function Orb({
 
     const mesh = new Mesh(gl, { geometry, program });
 
-    function resize() {
-      if (!container) return;
+    const resize = () => {
       const dpr = window.devicePixelRatio || 1;
       const width = container.clientWidth;
       const height = container.clientHeight;
@@ -212,8 +218,8 @@ export default function Orb({
         gl.canvas.height,
         gl.canvas.width / gl.canvas.height
       );
-    }
-    window.addEventListener("resize", resize);
+    };
+    window.addEventListener("resize", resize as EventListener);
     resize();
 
     let targetHover = 0;
@@ -221,7 +227,7 @@ export default function Orb({
     let currentRot = 0;
     const rotationSpeed = 0.3;
 
-    const handleMouseMove = (e) => {
+    const handleMouseMove = (e: MouseEvent) => {
       const rect = container.getBoundingClientRect();
       const x = e.clientX - rect.left;
       const y = e.clientY - rect.top;
@@ -244,11 +250,11 @@ export default function Orb({
       targetHover = 0;
     };
 
-    container.addEventListener("mousemove", handleMouseMove);
-    container.addEventListener("mouseleave", handleMouseLeave);
+    container.addEventListener("mousemove", handleMouseMove as EventListener);
+    container.addEventListener("mouseleave", handleMouseLeave as EventListener);
 
-    let rafId;
-    const update = (t) => {
+    let rafId: number = 0;
+    const update = (t: number) => {
       rafId = requestAnimationFrame(update);
       const dt = (t - lastTime) * 0.001;
       lastTime = t;
@@ -257,7 +263,8 @@ export default function Orb({
       program.uniforms.hoverIntensity.value = hoverIntensity;
 
       const effectiveHover = forceHoverState ? 1 : targetHover;
-      program.uniforms.hover.value += (effectiveHover - program.uniforms.hover.value) * 0.1;
+      program.uniforms.hover.value +=
+        (effectiveHover - program.uniforms.hover.value) * 0.1;
 
       if (rotateOnHover && effectiveHover > 0.5) {
         currentRot += dt * rotationSpeed;
@@ -270,13 +277,15 @@ export default function Orb({
 
     return () => {
       cancelAnimationFrame(rafId);
-      window.removeEventListener("resize", resize);
-      container.removeEventListener("mousemove", handleMouseMove);
-      container.removeEventListener("mouseleave", handleMouseLeave);
-      container.removeChild(gl.canvas);
-      gl.getExtension("WEBGL_lose_context")?.loseContext();
+      window.removeEventListener("resize", resize as EventListener);
+      container.removeEventListener("mousemove", handleMouseMove as EventListener);
+      container.removeEventListener("mouseleave", handleMouseLeave as EventListener);
+      if (gl && gl.canvas && gl.canvas.parentNode === container) {
+        container.removeChild(gl.canvas);
+      }
+      (gl.getExtension("WEBGL_lose_context") as any)?.loseContext?.();
     };
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [hue, hoverIntensity, rotateOnHover, forceHoverState]);
 
   return <div ref={ctnDom} className="orb-container" />;
