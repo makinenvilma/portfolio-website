@@ -21,21 +21,21 @@ const INFO = {
 const PROJECTS = [
   {
     title: "Chat Web App",
-    description: "",
+    description: "Real-time messaging platform with customizable nicknames and the ability to create or join chat rooms.",
     tags: ["HTML", "CSS", "Node.js", "Express", "Socket.io", "JavaScript", "MongoDB"],
     href: "https://example.com",
     github: "https://github.com/username/project",
   },
   {
     title: "Blog Web App",
-    description: "",
+    description: "Blog application user can create, edit and delete blog posts using an admin panel.",
     tags: ["HTML", "CSS", "Python", "Django", "Tailwind"],
     href: "https://example.com",
     github: "https://github.com/username/design-system",
   },
   {
     title: "Neighbour Help Web App",
-    description: "",
+    description: "Application that allows users to request help from neighbours, share updates, and make announcements related to their housing community.",
     tags: ["TypeScript"],
     href: "https://example.com",
     github: "https://github.com/username/ai-helper",
