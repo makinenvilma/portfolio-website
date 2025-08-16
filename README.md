@@ -11,6 +11,10 @@ The hero section features an interactive animated orb background that reacts to 
 - 📂 Projects showcase, skills list, and contact section
 - 📱 Mobile and desktop optimized
 
+## Tech Stack
+
+- **Front-end:** TypeScript, React, Vite, Tailwind CSS
+
 ## 🚀 Installation & Setup
 
 1. **Clone the repository**
