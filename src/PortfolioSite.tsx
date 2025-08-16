@@ -1,5 +1,5 @@
 import React from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion"; // <- AnimatePresence lisätty
 import Orb from "./Orb";
 import { Mail, Github, Linkedin, Download, ExternalLink, Code2, Moon, PartyPopper } from "lucide-react";
 
@@ -21,31 +21,73 @@ const INFO = {
 const PROJECTS = [
   {
     title: "Chat Web App",
-    description:
-      "",
+    description: "",
     tags: ["HTML", "CSS", "Node.js", "Express", "Socket.io", "JavaScript", "MongoDB"],
     href: "https://example.com",
     github: "https://github.com/username/project",
   },
   {
     title: "Blog Web App",
-    description:
-      "",
+    description: "",
     tags: ["HTML", "CSS", "Python", "Django", "Tailwind"],
     href: "https://example.com",
     github: "https://github.com/username/design-system",
   },
   {
     title: "Neighbour Help Web App",
-    description:
-      "",
+    description: "",
     tags: ["TypeScript"],
     href: "https://example.com",
     github: "https://github.com/username/ai-helper",
   },
 ];
 
-// ---------- HERO (Orb) ----------
+function Confetti({ fire }: { fire: boolean }) {
+  const pieces = Array.from({ length: 36 });
+  return (
+    <AnimatePresence>
+      {fire && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          className="pointer-events-none fixed inset-0 z-50"
+        >
+          {pieces.map((_, i) => {
+            const left = Math.random() * 100;
+            const delay = Math.random() * 0.2;
+            const duration = 1.5 + Math.random() * 0.9;
+            const size = 6 + Math.random() * 10;
+            const r = Math.random();
+            const bg = r < 0.33 ? "#f472b6" : r < 0.66 ? "#60a5fa" : "#facc15";
+            return (
+              <span
+                key={i}
+                style={{
+                  left: left + "%",
+                  top: "-10vh",
+                  width: size,
+                  height: size * 0.4,
+                  backgroundColor: bg,
+                  position: "absolute",
+                  borderRadius: 2,
+                  animation: `confetti-fall ${duration}s cubic-bezier(.15,.65,.28,1) ${delay}s 1 forwards`,
+                }}
+              />
+            );
+          })}
+          <style>{`
+            @keyframes confetti-fall {
+              0% { transform: translateY(-20vh) rotate(0); }
+              100% { transform: translateY(110vh) rotate(720deg); }
+            }
+          `}</style>
+        </motion.div>
+      )}
+    </AnimatePresence>
+  );
+}
+
 function Hero() {
   return (
     <section className="relative isolate flex min-h-[86vh] items-center justify-center overflow-hidden px-6 pt-28">
@@ -97,12 +139,25 @@ function Hero() {
 }
 
 function Header({ onToggleTheme, theme }: { onToggleTheme: () => void; theme: "party" | "dark" }) {
+  const isParty = theme === "party";
   return (
     <header className="fixed inset-x-0 top-0 z-40">
       <div className="mx-auto max-w-6xl px-4">
-        <div className="mt-4 flex items-center justify-between rounded-2xl border border-zinc-800/60 bg-zinc-900/70 px-4 py-3 backdrop-blur-xl">
+        <div
+          className={`mt-4 flex items-center justify-between rounded-2xl border px-4 py-3 backdrop-blur-xl ${
+            isParty
+              ? "border-pink-500/40 bg-gradient-to-r from-fuchsia-600/20 via-amber-500/20 to-sky-500/20"
+              : "border-zinc-800/60 bg-zinc-900/70"
+          }`}
+        >
           <div className="flex items-center gap-3">
-            <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-sky-400 to-fuchsia-400 text-zinc-900 shadow">
+            <div
+              className={`flex h-9 w-9 items-center justify-center rounded-xl text-zinc-900 shadow ${
+                isParty
+                  ? "bg-gradient-to-br from-amber-300 to-pink-400"
+                  : "bg-gradient-to-br from-sky-400 to-fuchsia-400"
+              }`}
+            >
               <Code2 className="h-5 w-5" />
             </div>
             <div className="leading-tight">
@@ -248,6 +303,7 @@ function Footer() {
 
 export default function PortfolioSite() {
   const [theme, setTheme] = React.useState<"party" | "dark">("dark");
+  const [burst, setBurst] = React.useState(false); // <-- LISÄTTY
 
   React.useEffect(() => {
     const root = document.documentElement;
@@ -259,9 +315,19 @@ export default function PortfolioSite() {
     }
   }, [theme]);
 
+  const toggleTheme = () => {
+    const next = theme === "dark" ? "party" : "dark";
+    setTheme(next);
+    if (next === "party") {
+      setBurst(true);
+      setTimeout(() => setBurst(false), 1800);
+    }
+  };
+
   return (
     <div className="min-h-screen bg-white text-zinc-900 dark:bg-zinc-950 dark:text-zinc-50">
-      <Header onToggleTheme={() => setTheme(theme === "dark" ? "party" : "dark")} theme={theme} />
+      <Confetti fire={burst} />
+      <Header onToggleTheme={toggleTheme} theme={theme} />
       <Hero />
       <Projects />
       <About />
