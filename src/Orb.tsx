@@ -207,12 +207,12 @@ export default function Orb({
     const mesh = new Mesh(gl, { geometry, program });
 
     const resize = (): void => {
-      const dpr = window.devicePixelRatio || 1;
-      const width = container.clientWidth;
-      const height = container.clientHeight;
-      renderer.setSize(width * dpr, height * dpr);
-      gl.canvas.style.width = width + "px";
-      gl.canvas.style.height = height + "px";
+      const width = container.clientWidth || 1;
+      const height = container.clientHeight || 1;
+
+      renderer.dpr = window.devicePixelRatio || 1;
+      renderer.setSize(width, height, false);
+
       program.uniforms.iResolution.value.set(
         gl.canvas.width,
         gl.canvas.height,
@@ -220,7 +220,7 @@ export default function Orb({
       );
     };
     window.addEventListener("resize", resize);
-    resize();
+    requestAnimationFrame(resize);
 
     let targetHover = 0;
     let lastTime = 0;
