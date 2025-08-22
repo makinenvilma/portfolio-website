@@ -90,7 +90,7 @@ function Confetti({ fire }: { fire: boolean }) {
 
 function Hero() {
   return (
-    <section className="relative isolate flex min-h-[86vh] items-center justify-center overflow-hidden px-6 pt-28">
+    <section className="relative isolate flex min-h-[86vh] items-center justify-center px-6 pt-28">
       {/* Orb */}
       <div className="absolute inset-0 -z-10 translate-y-10">
         <Orb
