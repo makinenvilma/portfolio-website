@@ -211,7 +211,7 @@ export default function Orb({
       const height = container.clientHeight || 1;
 
       renderer.dpr = window.devicePixelRatio || 1;
-      renderer.setSize(width, height, false);
+      renderer.setSize(width, height);
 
       program.uniforms.iResolution.value.set(
         gl.canvas.width,
@@ -220,7 +220,7 @@ export default function Orb({
       );
     };
     window.addEventListener("resize", resize);
-    requestAnimationFrame(resize);
+    resize();
 
     let targetHover = 0;
     let lastTime = 0;
