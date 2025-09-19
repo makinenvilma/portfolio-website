@@ -153,8 +153,8 @@ function Header({ onToggleTheme, theme }: { onToggleTheme: () => void; theme: "p
             <div
               className={`flex h-9 w-9 items-center justify-center rounded-xl text-zinc-900 shadow ${
                 isParty
-                  ? "bg-gradient-to-br from-amber-300 to-pink-300"
-                  : "bg-gradient-to-br from-indigo-300 to-fuchsia-300"
+                  ? "bg-gradient-to-br from-amber-500 to-pink-500"
+                  : "bg-gradient-to-br from-indigo-400 to-fuchsia-400"
               }`}
             >
               <Code2 className="h-5 w-5 text-white" />
