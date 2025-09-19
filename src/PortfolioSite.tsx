@@ -1,5 +1,5 @@
 import React from "react";
-import { motion, AnimatePresence } from "framer-motion"; // <- AnimatePresence lisätty
+import { motion, AnimatePresence } from "framer-motion";
 import Orb from "./Orb";
 import { Mail, Github, Linkedin, Download, ExternalLink, Code2, Moon, PartyPopper } from "lucide-react";
 
@@ -13,7 +13,6 @@ const INFO = {
   socials: {
     github: "https://github.com/makinenvilma",
     linkedin: "https://www.linkedin.com/in/vilma-m%C3%A4kinen-71027424b/",
-    x: "https://x.com/username",
   },
   cvUrl: "/cv.pdf",
 };
