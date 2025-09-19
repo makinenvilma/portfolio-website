@@ -7,12 +7,12 @@ const INFO = {
   name: "Vilma Mäkinen",
   title: "Full-Stack Developer",
   tagline:
-    "Full-Stack Developer specialized in Web Development but somehow ended up working with apps. Loves making games too.",
+    "Full-Stack Developer specialized in Web Development but ended up working with apps. Enjoys making games too.",
   email: "hello@example.com",
   location: "Tampere, Finland",
   socials: {
-    github: "https://github.com/username",
-    linkedin: "https://www.linkedin.com/in/username/",
+    github: "https://github.com/makinenvilma",
+    linkedin: "https://www.linkedin.com/in/vilma-m%C3%A4kinen-71027424b/",
     x: "https://x.com/username",
   },
   cvUrl: "/cv.pdf",
@@ -24,21 +24,21 @@ const PROJECTS = [
     description: "Real-time messaging platform with customizable nicknames and the ability to create chat rooms.",
     tags: ["HTML", "CSS", "Node.js", "Express", "Socket.io", "JavaScript", "MongoDB"],
     href: "https://example.com",
-    github: "https://github.com/username/project",
+    github: "https://github.com/makinenvilma/chat-room",
   },
   {
     title: "Blog Web App",
     description: "Blog application user can create, edit and delete blog posts using an admin panel.",
     tags: ["HTML", "CSS", "Python", "Django", "Tailwind"],
     href: "https://example.com",
-    github: "https://github.com/username/design-system",
+    github: "https://github.com/makinenvilma/blog-app",
   },
   {
     title: "Neighbour Help Web App",
-    description: "Application that allows users to request help from neighbours, share updates, and make announcements related to their housing community.",
-    tags: ["TypeScript"],
+    description: "Application that allows users to request help from neighbours and share updates.",
+    tags: ["TypeScript", "Next.js", "React", "Tailwind", "Prisma", "PostgreSQL"],
     href: "https://example.com",
-    github: "https://github.com/username/ai-helper",
+    github: "https://github.com/makinenvilma/neighbour-app",
   },
 ];
 
