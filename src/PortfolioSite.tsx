@@ -7,7 +7,7 @@ const INFO = {
   name: "Vilma Mäkinen",
   title: "Full-Stack Developer",
   tagline:
-    "Full-Stack Developer specialized in Web Development but ended up working with apps. Enjoys making games too.",
+    "Full-Stack Developer specialized in web development, currently specializing in apps. Does have a passion for design as well.",
   email: "hello@example.com",
   location: "Tampere, Finland",
   socials: {
@@ -246,7 +246,7 @@ function About() {
     <section id="about" className="relative z-10 mx-auto max-w-4xl px-6 py-16 text-center">
       <h2 className="text-2xl font-semibold text-white sm:text-3xl">About Me</h2>
       <p className="mt-4 text-zinc-300">
-        I’m a software developer who enjoys working on the whole stack - from the code running behind the scenes to the interfaces people interact with. I believe software should always put people first, which is why I care about creating solutions that are simple, intuitive, and enjoyable to use.
+        I’m a software developer who enjoys working on the whole stack. From the code running behind the scenes to the interfaces people interact with. I believe software should always put people first, which is why I care about creating solutions that are simple, accessible, and enjoyable to use.
         I have a soft spot for clean design and well-structured code. Whether it’s the look of the interface or the structure behind it, I like things to be neat, clear, and visually pleasing. Building software that feels both functional and beautiful is what motivates me most.
       </p>
     </section>
