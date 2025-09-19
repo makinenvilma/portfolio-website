@@ -157,7 +157,7 @@ function Header({ onToggleTheme, theme }: { onToggleTheme: () => void; theme: "p
                   : "bg-gradient-to-br from-indigo-400 to-fuchsia-400"
               }`}
             >
-              <Code2 className="h-5 w-5" />
+              <Code2 className="h-5 w-5 text-white" />
             </div>
             <div className="leading-tight">
               <p className="text-zinc-200 font-medium">{INFO.name}</p>
