@@ -7,7 +7,7 @@ const INFO = {
   name: "Vilma Mäkinen",
   title: "Full-Stack Developer",
   tagline:
-    "Full-Stack Developer specialized in web development, currently specializing in apps. Does have a passion for design as well.",
+    "Full-stack developer specialized in Web Development, currently working in App Development. Passionate about design as well.",
   email: "hello@example.com",
   location: "Tampere, Finland",
   socials: {
