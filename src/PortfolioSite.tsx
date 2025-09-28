@@ -7,7 +7,7 @@ const INFO = {
   name: "Vilma Mäkinen",
   title: "Full-Stack Developer",
   tagline:
-    "Full-stack developer specialized in web development, working currently with mobile apps. Enjoys doing design too.",
+    "Full-stack developer specializing in web development and mobile apps. Enjoys doing design too.",
   email: "hello@example.com",
   location: "Tampere, Finland",
   socials: {
@@ -105,7 +105,7 @@ function Hero() {
         <h1 className="text-4xl font-semibold tracking-tight text-white sm:text-5xl md:text-6xl">
           {INFO.name}
         </h1>
-        <p className="mx-auto mt-4 max-w-2xl text-lg text-zinc-300">
+        <p className="mx-auto mt-4 max-w-[580px] text-lg text-zinc-300">
           {INFO.tagline}
         </p>
         <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
