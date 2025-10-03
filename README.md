@@ -15,7 +15,7 @@ The hero section features an interactive animated orb background that reacts to 
 
 - **Front-end:** TypeScript, React, Vite, Tailwind CSS
 
-## 🚀 Installation & Setup
+## Installation & Setup
 
 1. **Clone the repository**
 
