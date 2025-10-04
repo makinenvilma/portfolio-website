@@ -87,68 +87,12 @@ function Confetti({ fire }: { fire: boolean }) {
   );
 }
 
-function Hero() {
-  return (
-    <section className="relative isolate flex min-h-[86vh] items-center justify-center px-6 pt-28">
-      {/* Orb */}
-      <div className="absolute inset-0 -z-10 translate-y-10">
-        <Orb
-          hoverIntensity={0.5}
-          rotateOnHover={true}
-          hue={650} // color
-          forceHoverState={false}
-        />
-      </div>
-
-      {/* Hero */}
-      <div className="relative z-10 mx-auto max-w-4xl text-center">
-        <h1 className="text-4xl font-semibold tracking-tight text-white sm:text-5xl md:text-6xl">
-          {INFO.name}
-        </h1>
-        <p className="mx-auto mt-4 max-w-[580px] text-lg text-zinc-300">
-          {INFO.tagline}
-        </p>
-        <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
-          <a
-            href={`mailto:${INFO.email}`}
-            className="inline-flex items-center gap-2 rounded-2xl bg-white/90 px-5 py-3 text-sm font-medium text-zinc-900 shadow hover:bg-white"
-          >
-            <Mail className="h-4 w-4" /> Contact Me
-          </a>
-          <a
-            href={INFO.socials.github}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 rounded-2xl border border-white/20 bg-zinc-900/70 px-5 py-3 text-sm text-zinc-200 backdrop-blur hover:bg-zinc-900/90"
-          >
-            <Github className="h-4 w-4" /> GitHub
-          </a>
-          <a
-            href={INFO.socials.linkedin}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 rounded-2xl border border-white/20 bg-zinc-900/70 px-5 py-3 text-sm text-zinc-200 backdrop-blur hover:bg-zinc-900/90"
-          >
-            <Linkedin className="h-4 w-4" /> LinkedIn
-          </a>
-        </div>
-      </div>
-    </section>
-  );
-}
-
 function Header({ onToggleTheme, theme }: { onToggleTheme: () => void; theme: "party" | "dark" }) {
   const isParty = theme === "party";
   return (
     <header className="fixed inset-x-0 top-0 z-40">
       <div className="mx-auto max-w-6xl px-4">
-        <div
-          className={`mt-4 flex items-center justify-between rounded-2xl border px-4 py-3 backdrop-blur-xl ${
-            isParty
-              ? "border-pink-500/40 bg-gradient-to-r from-fuchsia-600/20 via-amber-500/20 to-sky-500/20"
-              : "border-zinc-800/60 bg-zinc-900/70"
-          }`}
-        >
+        <div className="mt-4 flex items-center justify-between rounded-2xl border border-zinc-800/60 bg-zinc-900/70 px-4 py-3 backdrop-blur-xl">
           <div className="flex items-center gap-3">
             <div
               className={`flex h-9 w-9 items-center justify-center rounded-xl text-zinc-900 shadow ${
@@ -174,13 +118,40 @@ function Header({ onToggleTheme, theme }: { onToggleTheme: () => void; theme: "p
             <a href={INFO.cvUrl} className="hidden sm:inline-flex items-center gap-2 rounded-xl border border-zinc-700 bg-zinc-800 px-3 py-2 text-sm text-zinc-200 hover:border-zinc-600">
               <Download className="h-4 w-4" /> Download CV
             </a>
-            <button onClick={onToggleTheme} aria-label="Vaihda teema" className="inline-flex items-center justify-center rounded-xl border border-zinc-700 bg-zinc-800 p-2 text-zinc-200 hover:border-zinc-600">
+            <button onClick={onToggleTheme} aria-label="Change theme" className="inline-flex items-center justify-center rounded-xl border border-zinc-700 bg-zinc-800 p-2 text-zinc-200 hover:border-zinc-600">
               {theme === "dark" ? <PartyPopper className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
             </button>
           </div>
         </div>
       </div>
     </header>
+  );
+}
+
+function Hero() {
+  return (
+    <section className="relative isolate flex min-h-[86vh] items-center justify-center px-6 pt-28">
+      <div className="absolute inset-0 -z-10 translate-y-10">
+        <Orb hoverIntensity={0.5} rotateOnHover={true} hue={650} forceHoverState={false} />
+      </div>
+      <div className="relative z-10 mx-auto max-w-4xl text-center">
+        <h1 className="text-4xl font-semibold tracking-tight text-white sm:text-5xl md:text-6xl">
+          {INFO.name}
+        </h1>
+        <p className="mx-auto mt-4 max-w-[580px] text-lg text-zinc-300">{INFO.tagline}</p>
+        <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
+          <a href={`mailto:${INFO.email}`} className="inline-flex items-center gap-2 rounded-2xl bg-white/90 px-5 py-3 text-sm font-medium text-zinc-900 shadow hover:bg-white">
+            <Mail className="h-4 w-4" /> Contact Me
+          </a>
+          <a href={INFO.socials.github} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-2xl border border-white/20 bg-zinc-900/70 px-5 py-3 text-sm text-zinc-200 backdrop-blur hover:bg-zinc-900/90">
+            <Github className="h-4 w-4" /> GitHub
+          </a>
+          <a href={INFO.socials.linkedin} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-2xl border border-white/20 bg-zinc-900/70 px-5 py-3 text-sm text-zinc-200 backdrop-blur hover:bg-zinc-900/90">
+            <Linkedin className="h-4 w-4" /> LinkedIn
+          </a>
+        </div>
+      </div>
+    </section>
   );
 }
 
@@ -215,12 +186,7 @@ function Projects() {
               }}
             />
             <div className="mb-3 flex items-start justify-between">
-              <a
-                href={p.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2"
-              >
+              <a href={p.href} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2">
                 <h3 className="text-lg font-semibold text-white group-hover:underline">{p.title}</h3>
                 <ExternalLink className="h-4 w-4 text-zinc-400" />
               </a>
@@ -254,9 +220,7 @@ function About() {
 }
 
 function Skills() {
-  const skills = [
-    "React Native", "TypeScript", "React", "JavaScript", "Python", "MongoDB", "HTML", "CSS"
-  ];
+  const skills = ["React Native", "TypeScript", "React", "JavaScript", "Python", "MongoDB", "HTML", "CSS"];
   return (
     <section id="skills" className="relative z-10 mx-auto max-w-6xl px-6 pb-12">
       <h2 className="text-2xl font-semibold text-white sm:text-3xl">Top Skills</h2>
@@ -305,17 +269,13 @@ function Footer() {
 
 export default function PortfolioSite() {
   const [theme, setTheme] = React.useState<"party" | "dark">("dark");
-  const [burst, setBurst] = React.useState(false); // <-- LISÄTTY
+  const [burst, setBurst] = React.useState(false);
 
   React.useEffect(() => {
     const root = document.documentElement;
-    if (theme === "dark") {
-      root.classList.add("dark");
-      root.style.setProperty("color-scheme", "dark");
-    } else {
-      root.style.setProperty("color-scheme", "party");
-    }
-  }, [theme]);
+    root.classList.add("dark");
+    root.style.setProperty("color-scheme", "dark");
+  }, []);
 
   const toggleTheme = () => {
     const next = theme === "dark" ? "party" : "dark";
@@ -327,7 +287,7 @@ export default function PortfolioSite() {
   };
 
   return (
-    <div className="min-h-screen bg-white text-zinc-900 dark:bg-zinc-950 dark:text-zinc-50">
+    <div className="min-h-screen bg-zinc-950 text-zinc-50">
       <Confetti fire={burst} />
       <Header onToggleTheme={toggleTheme} theme={theme} />
       <Hero />
