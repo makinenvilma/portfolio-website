@@ -33,11 +33,11 @@ const PROJECTS = [
     github: "https://github.com/makinenvilma/blog-app",
   },
   {
-    title: "Neighbour Help Web App",
-    description: "Application that allows users to request help from neighbours and share updates.",
-    tags: ["TypeScript", "Next.js", "React", "Tailwind", "Prisma", "PostgreSQL"],
-    href: "https://example.com",
-    github: "https://github.com/makinenvilma/neighbour-app",
+    title: "Fortnite Brainrot Events",
+    description: "Static HTML/JS countdowns for Fortnite “brainrot” events. Custom intervals, per-event anchors, UTC/LOCAL",
+    tags: ["HTML", "CSS", "JavaScript"],
+    href: "https://brainrot-events.vercel.app/",
+    github: "https://github.com/makinenvilma/brainrot-events",
   },
 ];
 
@@ -198,7 +198,7 @@ function Projects() {
               ))}
             </div>
             <div className="mt-4">
-              <a href={p.github} target="_blank" rel="noopener noreferrer" className="text-xs text-zinc-400 hover:text-zinc-200">Watch the Code →</a>
+              <a href={p.github} target="_blank" rel="noopener noreferrer" className="text-xs text-zinc-400 hover:text-zinc-200">View Code →</a>
             </div>
           </motion.div>
         ))}
