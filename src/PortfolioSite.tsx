@@ -88,19 +88,12 @@ function Confetti({ fire }: { fire: boolean }) {
 }
 
 function Header({ onToggleTheme, theme }: { onToggleTheme: () => void; theme: "party" | "dark" }) {
-  const isParty = theme === "party";
   return (
     <header className="fixed inset-x-0 top-0 z-40">
       <div className="mx-auto max-w-6xl px-4">
         <div className="mt-4 flex items-center justify-between rounded-2xl border border-zinc-800/60 bg-zinc-900/70 px-4 py-3 backdrop-blur-xl">
           <div className="flex items-center gap-3">
-            <div
-              className={`flex h-9 w-9 items-center justify-center rounded-xl text-zinc-900 shadow ${
-                isParty
-                  ? "bg-gradient-to-br from-amber-500 to-pink-500"
-                  : "bg-gradient-to-br from-indigo-400 to-fuchsia-400"
-              }`}
-            >
+            <div className="flex h-9 w-9 items-center justify-center rounded-xl text-zinc-900 shadow bg-gradient-to-br from-indigo-400 to-fuchsia-400">
               <Code2 className="h-5 w-5 text-white" />
             </div>
             <div className="leading-tight">
@@ -262,7 +255,7 @@ function Contact() {
 function Footer() {
   return (
     <footer className="relative z-10 mx-auto max-w-6xl px-6 py-10 text-zinc-500 text-center">
-      <p>© {new Date().getFullYear()} {INFO.name}. Made with React & Tailwind.</p>
+      <p>{new Date().getFullYear()} {INFO.name}. Made with React & Tailwind.</p>
     </footer>
   );
 }
