@@ -7,7 +7,7 @@ const INFO = {
   name: "Vilma Mäkinen",
   title: "Full-Stack Developer",
   tagline:
-    "Full-stack developer specializing in web development and mobile apps. Enjoys doing design too.",
+    "Software Developer with project management and leadership experience. Combining technical expertise with a big-picture mindset.",
   email: "hello@example.com",
   location: "Tampere, Finland",
   socials: {
@@ -205,8 +205,7 @@ function About() {
     <section id="about" className="relative z-10 mx-auto max-w-4xl px-6 py-16 text-center">
       <h2 className="text-2xl font-semibold text-white sm:text-3xl">About Me</h2>
       <p className="mt-4 text-zinc-300">
-        I’m a software developer who enjoys working on the whole stack. From the code running behind the scenes to the interfaces people interact with. I believe software should always put people first, which is why I care about creating solutions that are simple, accessible, and enjoyable to use.
-        I have a soft spot for clean design and well-structured code. Whether it’s the look of the interface or the structure behind it, I like things to be neat, clear, and visually pleasing. Building software that feels both functional and beautiful is what motivates me most.
+        Software Developer with a BBA in Computer and Information Sciences. I contribute to the continuous development and improvement of software products throughout the entire lifecycle, including feature implementation, CI/CD pipeline management, and testing. With experience in project management and team leadership, I bring both technical expertise and a big-picture mindset to every project. I'm currently focused on building mobile applications with TypeScript and React Native.
       </p>
     </section>
   );
