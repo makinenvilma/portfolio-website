@@ -1,7 +1,7 @@
 import React from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Orb from "./Orb";
-import { Mail, Github, Linkedin, Download, ExternalLink, Code2, Moon, PartyPopper } from "lucide-react";
+import { Mail, Github, Linkedin, Download, ExternalLink, Code2, PartyPopper } from "lucide-react";
 
 const INFO = {
   name: "Vilma Mäkinen",
@@ -87,7 +87,7 @@ function Confetti({ fire }: { fire: boolean }) {
   );
 }
 
-function Header({ onToggleTheme, theme }: { onToggleTheme: () => void; theme: "party" | "dark" }) {
+function Header({ onParty }: { onParty: () => void }) {
   return (
     <header className="fixed inset-x-0 top-0 z-40">
       <div className="mx-auto max-w-6xl px-4">
@@ -111,8 +111,13 @@ function Header({ onToggleTheme, theme }: { onToggleTheme: () => void; theme: "p
             <a href={INFO.cvUrl} className="hidden sm:inline-flex items-center gap-2 rounded-xl border border-zinc-700 bg-zinc-800 px-3 py-2 text-sm text-zinc-200 hover:border-zinc-600">
               <Download className="h-4 w-4" /> Download CV
             </a>
-            <button onClick={onToggleTheme} aria-label="Change theme" className="inline-flex items-center justify-center rounded-xl border border-zinc-700 bg-zinc-800 p-2 text-zinc-200 hover:border-zinc-600">
-              {theme === "dark" ? <PartyPopper className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
+            {/* Pelkkä PARTY-nappi */}
+            <button
+              onClick={onParty}
+              aria-label="Party!"
+              className="inline-flex items-center gap-2 rounded-xl border border-zinc-700 bg-zinc-800 px-3 py-2 text-sm text-zinc-200 hover:border-zinc-600"
+            >
+              <PartyPopper className="h-4 w-4" />
             </button>
           </div>
         </div>
@@ -133,7 +138,7 @@ function Hero() {
         </h1>
         <p className="mx-auto mt-4 max-w-[580px] text-lg text-zinc-300">{INFO.tagline}</p>
         <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
-          <a href={`mailto:${INFO.email}`} className="inline-flex items-center gap-2 rounded-2xl bg-white/90 px-5 py-3 text-sm font-medium text-zinc-900 shadow hover:bg-white">
+          <a href={`mailto:${INFO.email}`} className="inline-flex items-center gap-2 rounded-2xl bg-white/90 px-5 py-3 text-sm font-medium text-zinc-900 shadow hover:bg_white">
             <Mail className="h-4 w-4" /> Contact Me
           </a>
           <a href={INFO.socials.github} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-2xl border border-white/20 bg-zinc-900/70 px-5 py-3 text-sm text-zinc-200 backdrop-blur hover:bg-zinc-900/90">
@@ -152,7 +157,7 @@ function Projects() {
   return (
     <section id="projects" className="relative z-10 mx-auto max-w-6xl px-6 py-20">
       <div className="mb-8 flex items-end justify-between">
-        <h2 className="text-2xl font-semibold text-white sm:text-3xl">Projects</h2>
+        <h2 className="text-2xl font-semibold text_white sm:text-3xl">Projects</h2>
         <a href={INFO.socials.github} target="_blank" rel="noopener noreferrer" className="text-sm text-zinc-400 hover:text-zinc-200">More on GitHub</a>
       </div>
       <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
@@ -260,7 +265,6 @@ function Footer() {
 }
 
 export default function PortfolioSite() {
-  const [theme, setTheme] = React.useState<"party" | "dark">("dark");
   const [burst, setBurst] = React.useState(false);
 
   React.useEffect(() => {
@@ -269,19 +273,15 @@ export default function PortfolioSite() {
     root.style.setProperty("color-scheme", "dark");
   }, []);
 
-  const toggleTheme = () => {
-    const next = theme === "dark" ? "party" : "dark";
-    setTheme(next);
-    if (next === "party") {
-      setBurst(true);
-      setTimeout(() => setBurst(false), 1800);
-    }
+  const party = () => {
+    setBurst(true);
+    setTimeout(() => setBurst(false), 1800);
   };
 
   return (
     <div className="min-h-screen bg-zinc-950 text-zinc-50">
       <Confetti fire={burst} />
-      <Header onToggleTheme={toggleTheme} theme={theme} />
+      <Header onParty={party} />
       <Hero />
       <Projects />
       <About />
