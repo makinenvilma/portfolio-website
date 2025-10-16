@@ -241,13 +241,13 @@ function Contact() {
           If you’d like to work together or learn more about my projects, don’t hesitate to get in touch. I’m always open to new opportunities, interesting conversations, and creative collaborations.
         </p>
         <div className="mt-5 flex flex-wrap items-center gap-3">
-          <a href={`mailto:${INFO.email}`} className="inline-flex items-center gap-2 rounded-XL bg.white/90 px-4 py-2 text-sm font-medium text-zinc-900 hover:bg-white">
+          <a href={`mailto:${INFO.email}`} className="inline-flex items-center gap-2 rounded-xl bg-white/90 px-4 py-2 text-sm font-medium text-zinc-900 hover:bg-white">
             <Mail className="h-4 w-4" /> {INFO.email}
           </a>
-          <a href={INFO.socials.github} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-XL border border-zinc-700 bg-zinc-800 px-4 py-2 text-sm text-zinc-200 hover:border-zinc-600">
+          <a href={INFO.socials.github} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-xl border border-zinc-700 bg-zinc-800 px-4 py-2 text-sm text-zinc-200 hover:border-zinc-600">
             <Github className="h-4 w-4" /> GitHub
           </a>
-          <a href={INFO.socials.linkedin} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-XL border border-zinc-700 bg-zinc-800 px-4 py-2 text-sm text-zinc-200 hover:border-zinc-600">
+          <a href={INFO.socials.linkedin} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-xl border border-zinc-700 bg-zinc-800 px-4 py-2 text-sm text-zinc-200 hover:border-zinc-600">
             <Linkedin className="h-4 w-4" /> LinkedIn
           </a>
         </div>
