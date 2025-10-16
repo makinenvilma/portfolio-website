@@ -1,7 +1,7 @@
 import React from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Orb from "./Orb";
-import { Mail, Github, Linkedin, Download, ExternalLink, Code2, PartyPopper } from "lucide-react";
+import { Mail, Github, Linkedin, Download, ExternalLink, Code2, PartyPopper, BarChart3, X } from "lucide-react";
 
 const INFO = {
   name: "Vilma Mäkinen",
@@ -15,6 +15,7 @@ const INFO = {
     linkedin: "https://www.linkedin.com/in/vilma-m%C3%A4kinen-71027424b/",
   },
   cvUrl: "/cv.pdf",
+  privacyUrl: "/privacy",
 };
 
 const PROJECTS = [
@@ -27,14 +28,14 @@ const PROJECTS = [
   },
   {
     title: "Blog Web App",
-    description: "Blog application user can create, edit and delete blog posts using an admin panel.",
+    description: "Blog application where a user can create, edit and delete blog posts using an admin panel.",
     tags: ["HTML", "CSS", "Python", "Django", "Tailwind"],
     href: "https://example.com",
     github: "https://github.com/makinenvilma/blog-app",
   },
   {
     title: "Fortnite Brainrot Events",
-    description: "Static HTML/JS countdowns for Fortnite “brainrot” events. Custom intervals, per-event anchors, UTC/LOCAL",
+    description: "Static HTML/JS countdowns for Fortnite 'brainrot' events. Custom intervals, per-event anchors, UTC/LOCAL.",
     tags: ["HTML", "CSS", "JavaScript"],
     href: "https://brainrot-events.vercel.app/",
     github: "https://github.com/makinenvilma/brainrot-events",
@@ -111,7 +112,6 @@ function Header({ onParty }: { onParty: () => void }) {
             <a href={INFO.cvUrl} className="hidden sm:inline-flex items-center gap-2 rounded-xl border border-zinc-700 bg-zinc-800 px-3 py-2 text-sm text-zinc-200 hover:border-zinc-600">
               <Download className="h-4 w-4" /> Download CV
             </a>
-            {/* Pelkkä PARTY-nappi */}
             <button
               onClick={onParty}
               aria-label="Party!"
@@ -241,13 +241,13 @@ function Contact() {
           If you’d like to work together or learn more about my projects, don’t hesitate to get in touch. I’m always open to new opportunities, interesting conversations, and creative collaborations.
         </p>
         <div className="mt-5 flex flex-wrap items-center gap-3">
-          <a href={`mailto:${INFO.email}`} className="inline-flex items-center gap-2 rounded-xl bg-white/90 px-4 py-2 text-sm font-medium text-zinc-900 hover:bg-white">
+          <a href={`mailto:${INFO.email}`} className="inline-flex items-center gap-2 rounded-XL bg.white/90 px-4 py-2 text-sm font-medium text-zinc-900 hover:bg-white">
             <Mail className="h-4 w-4" /> {INFO.email}
           </a>
-          <a href={INFO.socials.github} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-xl border border-zinc-700 bg-zinc-800 px-4 py-2 text-sm text-zinc-200 hover:border-zinc-600">
+          <a href={INFO.socials.github} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-XL border border-zinc-700 bg-zinc-800 px-4 py-2 text-sm text-zinc-200 hover:border-zinc-600">
             <Github className="h-4 w-4" /> GitHub
           </a>
-          <a href={INFO.socials.linkedin} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-xl border border-zinc-700 bg-zinc-800 px-4 py-2 text-sm text-zinc-200 hover:border-zinc-600">
+          <a href={INFO.socials.linkedin} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-XL border border-zinc-700 bg-zinc-800 px-4 py-2 text-sm text-zinc-200 hover:border-zinc-600">
             <Linkedin className="h-4 w-4" /> LinkedIn
           </a>
         </div>
@@ -261,6 +261,80 @@ function Footer() {
     <footer className="relative z-10 mx-auto max-w-6xl px-6 py-10 text-zinc-500 text-center">
       <p>{new Date().getFullYear()} {INFO.name}. Made with React & Tailwind.</p>
     </footer>
+  );
+}
+
+function AnalyticsNotice() {
+  const [open, setOpen] = React.useState(false);
+
+  React.useEffect(() => {
+    if (typeof window === "undefined") return;
+    const dismissed = window.localStorage.getItem("va_notice_dismissed");
+    if (!dismissed) setOpen(true);
+  }, []);
+
+  const dismiss = () => {
+    try {
+      window.localStorage.setItem("va_notice_dismissed", "1");
+    } catch {}
+    setOpen(false);
+  };
+
+  if (!open) return null;
+
+  return (
+    <AnimatePresence>
+      <motion.aside
+        role="region"
+        aria-label="Analytics Notice"
+        initial={{ y: 40, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        exit={{ y: 40, opacity: 0 }}
+        transition={{ type: "spring", stiffness: 260, damping: 22 }}
+        className="fixed inset-x-0 bottom-4 z-[60] mx-auto w-[95vw] max-w-2xl"
+      >
+        <div className="rounded-2xl border border-zinc-800 bg-zinc-900/95 px-4 py-3 shadow-xl backdrop-blur">
+          <div className="flex items-center gap-3">
+            <div className="mt-0.5 rounded-2xl border border-zinc-700 bg-zinc-800 p-1.5">
+              <BarChart3 className="h-4 w-4 text-zinc-200" />
+            </div>
+            <div className="grid gap-1">
+              <p className="text-sm font-medium text-zinc-100">Analytics in use</p>
+              <p className="text-xs leading-relaxed text-zinc-400">
+                This site uses Vercel Analytics to collect aggregated visitor statistics. The data is used only to improve the website experience.{" "}
+                <a className="underline hover:text-zinc-200" href={INFO.privacyUrl}>
+                  Read the privacy policy
+                </a>.
+              </p>
+            </div>
+            <div className="ml-auto flex items-center gap-2">
+              <a
+                href="https://vercel.com/analytics"
+                target="_blank"
+                rel="noreferrer noopener"
+                className="inline-flex h-8 items-center justify-center whitespace-nowrap rounded-lg border border-zinc-700 bg-zinc-800 px-2.5 py-1.5 text-xs text-zinc-200 hover:border-zinc-600"
+              >
+                Learn more
+              </a>
+              <button
+                onClick={dismiss}
+                className="inline-flex h-8 items-center justify-center whitespace-nowrap rounded-lg bg-white/90 px-3 py-1.5 text-xs font-medium text-zinc-900 hover:bg-white"
+                aria-label="Dismiss notice"
+              >
+                OK, got it
+              </button>
+              <button
+                onClick={dismiss}
+                className="ml-1 inline-flex h-8 w-8 items-center justify-center rounded-lg p-1 text-zinc-400 hover:text-zinc-200"
+                aria-label="Close"
+              >
+                <X className="h-4 w-4" />
+              </button>
+            </div>
+          </div>
+        </div>
+      </motion.aside>
+    </AnimatePresence>
   );
 }
 
@@ -288,6 +362,7 @@ export default function PortfolioSite() {
       <Skills />
       <Contact />
       <Footer />
+      <AnalyticsNotice />
     </div>
   );
 }
