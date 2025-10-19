@@ -20,18 +20,18 @@ const INFO = {
 
 const PROJECTS = [
   {
-    title: "Chat Web App",
-    description: "Real-time messaging platform with customizable nicknames and the ability to create chat rooms.",
-    tags: ["HTML", "CSS", "Node.js", "Express", "Socket.io", "JavaScript", "MongoDB"],
+    title: "Chat App",
+    description: "Real-time chat app built with Node.js, Express, and Socket.io, featuring custom nicknames and room-based communication.",
+    tags: ["Node.js", "Express", "Socket.io", "JavaScript", "MongoDB", "HTML", "CSS",],
     href: "https://example.com",
     github: "https://github.com/makinenvilma/chat-room",
   },
   {
-    title: "Blog Web App",
-    description: "Blog application where a user can create, edit and delete blog posts using an admin panel.",
-    tags: ["HTML", "CSS", "Python", "Django", "Tailwind"],
+    title: "Skribbl Ranking Site",
+    description: "Next.js/TypeScript app that records Skribbl.io games (via Prisma/Postgres) and renders live leaderboards, game pages, and player profiles.",
+    tags: ["Next.js", "TypeScript", "Prisma", "PostgreSQL", "Tailwind CSS"],
     href: "https://example.com",
-    github: "https://github.com/makinenvilma/blog-app",
+    github: "https://github.com/koorne/skribbl-rankings",
   },
   {
     title: "Fortnite Brainrot Events",
