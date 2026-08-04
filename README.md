@@ -1,4 +1,4 @@
-# Portfolio Site – React + Tailwind
+# Portfolio Site
 
 A modern and responsive portfolio website built with **React** and **Tailwind CSS**.  
 The hero section features an interactive animated orb background that reacts to mouse movement.
